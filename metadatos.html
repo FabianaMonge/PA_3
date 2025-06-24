@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Metadatos del sitio web de Dulce Tentación - Pastelería Artesanal">
+  <title>Metadatos - Dulce Tentación</title>
+  
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <!-- Estilos -->
+  <style>
+    /* Variables CSS consistentes con las demás páginas */
+    :root {
+      --primary-color: #f8b195;
+      --secondary-color: #f67280;
+      --accent-color: #c06c84;
+      --dark-color: #6c5b7b;
+      --light-color: #fcf4e8;
+      --text-color: #333;
+      --text-light: #fff;
+      --font-title: 'Playfair Display', serif;
+      --font-text: 'Roboto', sans-serif;
+      --font-special: 'Great Vibes', cursive;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    /* Estilos base consistentes */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-text);
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--light-color);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-title);
+      color: var(--dark-color);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent-color);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Encabezado igual al resto del sitio */
+    .main-header {
+      background-color: var(--light-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--box-shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo h1 {
+      font-family: var(--font-special);
+      font-size: 2.5rem;
+      color: var(--dark-color);
+      margin: 0;
+    }
+
+    .logo p {
+      font-style: italic;
+      color: var(--accent-color);
+      margin: 0;
+    }
+
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .main-nav li {
+      margin-left: 1.5rem;
+    }
+
+    .main-nav a {
+      color: var(--dark-color);
+      font-weight: bold;
+      padding: 0.5rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    .main-nav a:hover {
+      border-bottom: 2px solid var(--secondary-color);
+      color: var(--secondary-color);
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    /* Estilos para la sección de metadatos */
+    .metadata-section {
+      background-color: var(--text-light);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: var(--secondary-color);
+    }
+
+    .metadata-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .metadata-card {
+      background-color: var(--light-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .metadata-card:hover {
+      transform: translateY(-px);
+      box-shadow: 0 px 12px rgba(0, 0, 0, .15);
+    }
+
+    .metadata-name {
+      font-weight: bold;
+      color: var(--dark-color);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .metadata-value {
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+    }
+
+    .metadata-description {
+      font-size: 0.9rem;
+      color: var(--dark-color);
+      font-style: italic;
+    }
+
+    /* Footer consistente */
+    .main-footer {
+      background-color: var(--dark-color);
+      color: var(--text-light);
+      padding: 3rem 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .link-group h4 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .link-group ul {
+      list-style: none;
+    }
+
+    .link-group li {
+      margin-bottom: 0.5rem;
+    }
+
+    .link-group a {
+      color: var(--text-light);
+    }
+
+    .link-group a:hover {
+      color: var(--primary-color);
+      padding-left: 5px;
+    }
+
+    .footer-copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .main-nav ul {
+        margin-top: 1rem;
+        flex-direction: column;
+      }
+      
+      .main-nav li {
+        margin: 0.5rem 0;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Menú consistente con las demás páginas -->
+  <header class="main-header">
+    <div class="logo">
+      <h1>Dulce Tentación</h1>
+      <p>Pastelería Artesanal</p>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    <section class="metadata-section">
+      <h2 class="section-title">Nuestros Datos</h2>
+      
+      <div class="metadata-grid">
+        <!-- Metadatos HTTP/Técnicos -->
+        <article class="metadata-card">
+          <h3>Datos Técnicos</h3>
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Nombre de la aplicación</div>
+            <div class="metadata-value">Dulce Tentación - Pastelería Artesanal</div>
+            <div class="metadata-description">Nombre oficial de la aplicación web</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Author</div>
+            <div class="metadata-value">Fabiana Trinidad Monge Piemntel</div>
+            <div class="metadata-description">Autora del sitio web</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Cache-Control</div>
+            <div class="metadata-value">no-cache, no-store, must-revalidate</div>
+            <div class="metadata-description">Directivas de almacenamiento en caché</div>
+          </div>
+        </article>
+
+        <!-- Metadatos de Contenido -->
+        <article class="metadata-card">
+          <h3>Metadatos de Contenido</h3>
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Content-Disposition</div>
+            <div class="metadata-value">inline; filename=documento.html</div>
+            <div class="metadata-description">Cómo debe mostrarse el contenido</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Content-Encoding</div>
+            <div class="metadata-value">gzip</div>
+            <div class="metadata-description">Método de compresión utilizado</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Content-Language</div>
+            <div class="metadata-value">Español (es)</div>
+            <div class="metadata-description">Idioma principal del contenido</div>
+          </div>
+        </article>
+
+        <!-- Metadatos SEO/Sociales -->
+        <article class="metadata-card">
+          <h3>Metadatos SEO/Sociales</h3>
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Description</div>
+            <div class="metadata-value">Pastelería artesanal con los mejores ingredientes</div>
+            <div class="metadata-description">Descripción para motores de búsqueda</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Keywords</div>
+            <div class="metadata-value">pastelería, postres, tortas, cupcakes</div>
+            <div class="metadata-description">Palabras clave</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ og:title</div>
+            <div class="metadata-value">Dulce Tentación - Pastelería Artesanal</div>
+            <div class="metadata-description">Título para redes sociales</div>
+          </div>
+        </article>
+
+        <!-- Metadatos de Seguridad -->
+        <article class="metadata-card">
+          <h3>Metadatos de Seguridad</h3>
+          <div class="metadata-item">
+            <div class="metadata-name">◈ Content-Security-Policy</div>
+            <div class="metadata-value">default-src 'self'</div>
+            <div class="metadata-description">Política de seguridad de contenido</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ X-Content-Type-Options</div>
+            <div class="metadata-value">nosniff</div>
+            <div class="metadata-description">Previene sniffing de MIME types</div>
+          </div>
+          
+          <div class="metadata-item">
+            <div class="metadata-name">◈ X-Frame-Options</div>
+            <div class="metadata-value">DENY</div>
+            <div class="metadata-description">Protección contra clickjacking</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer consistente con las demás páginas -->
+  <footer class="main-footer">
+    <div class="footer-links">
+      <div class="link-group">
+        <h4>Menú</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+      </div>
+      
+      <div class="link-group">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+      
+      <div class="link-group">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+5512345678">(55) 1234 5678</a></li>
+          <li><a href="mailto:info@dulcetentacion.com">info@dulcetentacion.com</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      <p>&copy; 2025 Dulce Tentación - Todos los derechos reservados</p>
+      <p>Sitio web desarrollado por Fabiana Trinidad Monge Piemntel</p>
+    </div>
+  </footer>
+</body>
+</html>

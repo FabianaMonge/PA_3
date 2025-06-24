@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Clientes - Dulce Tentación</title>
+  <style>
+    :root {
+      --primary-color: #c94c4c;
+      --secondary-color: #a83232;
+      --light-color: #fff8f2;
+      --dark-color: #7a3e3e;
+      --accent-color: #f3d1c1;
+      --error-color: #d32f2f;
+      --success-color: #388e3c;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--light-color);
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .registro-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .registro-title {
+      text-align: center;
+      color: var(--primary-color);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    
+    .registro-form {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group label {
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: var(--dark-color);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 12px 15px;
+      border: 1px solid var(--accent-color);
+      border-radius: 8px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(201, 76, 76, 0.2);
+    }
+    
+    .error-message {
+      color: var(--error-color);
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 15px;
+    }
+    
+    .btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .required-field::after {
+      content: " *";
+      color: var(--primary-color);
+    }
+    
+    .accessibility-note {
+      font-size: 0.8rem;
+      color: var(--dark-color);
+      margin-top: 5px;
+    }
+
+    .success-message {
+      display: none;
+      background-color: #e8f5e9;
+      color: var(--success-color);
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 20px;
+      border: 1px solid #c8e6c9;
+    }
+
+    .clientes-registrados {
+      margin-top: 40px;
+      display: none;
+    }
+
+    .clientes-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .clientes-table th, 
+    .clientes-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .clientes-table th {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .clientes-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .clientes-table tr:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="registro-container">
+    <h1 class="registro-title">Registro de Clientes</h1>
+    
+    <form id="registroForm" class="registro-form" aria-labelledby="form-title">
+      <div class="form-group">
+        <label for="nombre" class="required-field">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required aria-required="true" placeholder="Ingrese su nombre completo">
+        <span id="nombre-error" class="error-message">Por favor ingrese su nombre completo</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="email" class="required-field">Correo electrónico</label>
+        <input type="email" id="email" name="email" required aria-required="true" placeholder="ejemplo@correo.com">
+        <span id="email-error" class="error-message">Por favor ingrese un email válido</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="+51 000 000 000" aria-describedby="phone-help">
+        <span id="telefono-error" class="error-message">Por favor ingrese un número válido</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="nacimiento" class="required-field">Fecha de nacimiento</label>
+        <input type="date" id="nacimiento" name="nacimiento" required aria-required="true" aria-describedby="birthday-help">
+        <span id="birthday-help" class="accessibility-note">Para ofertas especiales en tu cumpleaños</span>
+        <span id="nacimiento-error" class="error-message">Por favor ingrese una fecha válida</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="alergias">Alergias o restricciones alimentarias</label>
+        <select id="alergias" name="alergias" multiple aria-multiselectable="true" aria-describedby="allergy-help">
+          <option value="ninguna">Ninguna</option>
+          <option value="lacteos">Lácteos</option>
+          <option value="gluten">Gluten</option>
+          <option value="frutos-secos">Frutos secos</option>
+          <option value="huevo">Huevo</option>
+          <option value="otros">Otros</option>
+        </select>
+        <span id="allergy-help" class="accessibility-note">Mantenga presionada la tecla Ctrl (Windows) o Comando (Mac) para seleccionar múltiples opciones</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="comentarios">Comentarios adicionales</label>
+        <textarea id="comentarios" name="comentarios" rows="4" aria-label="Espacio para comentarios adicionales"></textarea>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="button" id="verClientesBtn" class="btn btn-secondary">Ver Clientes</button>
+      </div>
+    </form>
+
+    <div id="successMessage" class="success-message">
+      ¡Registro exitoso! Gracias por registrarte en Dulce Tentación.
+    </div>
+
+    <div id="clientesRegistrados" class="clientes-registrados">
+      <h2>Clientes Registrados</h2>
+      <table class="clientes-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Alergias</th>
+          </tr>
+        </thead>
+        <tbody id="clientesBody">
+          <!-- Datos de clientes se cargarán aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const registroForm = document.getElementById('registroForm');
+      const verClientesBtn = document.getElementById('verClientesBtn');
+      const successMessage = document.getElementById('successMessage');
+      const clientesRegistrados = document.getElementById('clientesRegistrados');
+      const clientesBody = document.getElementById('clientesBody');
+
+      // Cargar clientes existentes al iniciar
+      cargarClientes();
+
+      // Validación del formulario
+      registroForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validarFormulario()) {
+          const cliente = {
+            nombre: document.getElementById('nombre').value,
+            email: document.getElementById('email').value,
+            telefono: document.getElementById('telefono').value || 'No especificado',
+            nacimiento: document.getElementById('nacimiento').value,
+            alergias: obtenerAlergiasSeleccionadas(),
+            comentarios: document.getElementById('comentarios').value || 'Sin comentarios',
+            fechaRegistro: new Date().toLocaleString()
+          };
+
+          guardarCliente(cliente);
+          mostrarMensajeExito();
+          registroForm.reset();
+          cargarClientes();
+        }
+      });
+
+      // Mostrar clientes registrados
+      verClientesBtn.addEventListener('click', function() {
+        clientesRegistrados.style.display = clientesRegistrados.style.display === 'block' ? 'none' : 'block';
+      });
+
+      // Función para validar el formulario
+      function validarFormulario() {
+        let valido = true;
+        const nombre = document.getElementById('nombre');
+        const email = document.getElementById('email');
+        const telefono = document.getElementById('telefono');
+        const nacimiento = document.getElementById('nacimiento');
+
+        // Validar nombre
+        if (nombre.value.trim() === '') {
+          mostrarError('nombre-error', 'Por favor ingrese su nombre completo');
+          valido = false;
+        } else {
+          ocultarError('nombre-error');
+        }
+
+        // Validar email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+          mostrarError('email-error', 'Por favor ingrese un email válido');
+          valido = false;
+        } else {
+          ocultarError('email-error');
+        }
+
+        // Validar teléfono (opcional pero si está presente debe ser válido)
+        if (telefono.value && !/^[\d\s+-]+$/.test(telefono.value)) {
+          mostrarError('telefono-error', 'Por favor ingrese un número de teléfono válido');
+          valido = false;
+        } else {
+          ocultarError('telefono-error');
+        }
+
+        // Validar fecha de nacimiento
+        if (!nacimiento.value) {
+          mostrarError('nacimiento-error', 'Por favor ingrese su fecha de nacimiento');
+          valido = false;
+        } else {
+          const fechaNac = new Date(nacimiento.value);
+          const hoy = new Date();
+          if (fechaNac >= hoy) {
+            mostrarError('nacimiento-error', 'La fecha de nacimiento debe ser anterior a hoy');
+            valido = false;
+          } else {
+            ocultarError('nacimiento-error');
+          }
+        }
+
+        return valido;
+      }
+
+      // Funciones auxiliares
+      function mostrarError(id, mensaje) {
+        const errorElement = document.getElementById(id);
+        errorElement.textContent = mensaje;
+        errorElement.style.display = 'block';
+      }
+
+      function ocultarError(id) {
+        document.getElementById(id).style.display = 'none';
+      }
+
+      function obtenerAlergiasSeleccionadas() {
+        const select = document.getElementById('alergias');
+        const opciones = select.selectedOptions;
+        const alergias = Array.from(opciones).map(opcion => opcion.value);
+        return alergias.length > 0 ? alergias.join(', ') : 'Ninguna';
+      }
+
+      function guardarCliente(cliente) {
+        let clientes = JSON.parse(localStorage.getItem('clientesDulceTentacion')) || [];
+        clientes.push(cliente);
+        localStorage.setItem('clientesDulceTentacion', JSON.stringify(clientes));
+      }
+
+      function cargarClientes() {
+        const clientes = JSON.parse(localStorage.getItem('clientesDulceTentacion')) || [];
+        clientesBody.innerHTML = '';
+
+        if (clientes.length === 0) {
+          clientesBody.innerHTML = '<tr><td colspan="4" style="text-align: center;">No hay clientes registrados</td></tr>';
+          return;
+        }
+
+        clientes.forEach(cliente => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${cliente.nombre}</td>
+            <td>${cliente.email}</td>
+            <td>${cliente.telefono}</td>
+            <td>${cliente.alergias}</td>
+          `;
+          clientesBody.appendChild(row);
+        });
+      }
+
+      function mostrarMensajeExito() {
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      }
+    });
+  </script>
+</body>
+</html>

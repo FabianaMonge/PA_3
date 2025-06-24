@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Alérgenos - Dulce Tentación</title>
+  <style>
+    .alergenos-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff8f2;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .alergenos-title {
+      text-align: center;
+      color: #c94c4c;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+    
+    .alergenos-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    .alergenos-table th, 
+    .alergenos-table td {
+      padding: 12px 15px;
+      text-align: center;
+      border: 1px solid #f3d1c1;
+    }
+    
+    .alergenos-table th {
+      background-color: #c94c4c;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .alergenos-table tr:nth-child(even) {
+      background-color: #fff0e6;
+    }
+    
+    .alergenos-table tr:hover {
+      background-color: #f3d1c1;
+    }
+    
+    .alergenos-icon {
+      font-weight: bold;
+    }
+    
+    .contains {
+      color: #a83232;
+    }
+    
+    .not-contains {
+      color: #4c8c4c;
+    }
+    
+    .alergenos-note {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #7a3e3e;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="alergenos-container">
+    <h2 class="alergenos-title">Tabla de Ingredientes Alergénicos</h2>
+    
+    <table class="alergenos-table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Maní</th>
+          <th>Nueces</th>
+          <th>Leche</th>
+          <th>Chocolate</th>
+          <th>Gluten</th>
+          <th>Huevo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pastel de Chocolate</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+        <tr>
+          <td>Cheesecake de Fresa</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+        <tr>
+          <td>Tarta de Limón</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+        <tr>
+          <td>Cupcakes Variados</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+        <tr>
+          <td>Galletas Decoradas</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+        <tr>
+          <td>Pastel de Cumpleaños</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+        <tr>
+          <td>Mini Cupcakes</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+        <tr>
+          <td>Brownies</td>
+          <td class="alergenos-icon not-contains">✗</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+          <td class="alergenos-icon contains">✓</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p class="alergenos-note">
+      <strong>Nota:</strong> ✓ = Contiene el ingrediente, ✗ = No contiene el ingrediente. 
+      Esta información puede variar según preparación especial. Consulte con nuestro personal 
+      para opciones sin alérgenos específicos.
+    </p>
+  </div>
+</body>
+</html>

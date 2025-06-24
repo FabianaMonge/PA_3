@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dulce Tentación - Pasteles artesanales y deliciosos para toda ocasión." />
+    <title>Dulce Tentación - Pastelería Artesanal</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="compras.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- MENU -->
+    <header class="main-header">
+        <div class="logo">
+            <h1>Dulce Tentación</h1>
+            <p>Pastelería Artesanal</p>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#promociones">Promociones</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li class="cart-icon" id="cartIcon">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- CABECERA -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2>Delicias hechas con amor</h2>
+                <p>
+                    Descubre nuestros pasteles artesanales elaborados con ingredientes
+                    de primera calidad
+                </p>
+                <a href="#productos" class="btn">Ver productos</a>
+            </div>
+        </section>
+
+        <!-- MENÚ ADICIONAL -->
+        <section id="menu" class="menu">
+            <h2 class="section-title">Nuestro Menú</h2>
+            <div class="menu-container">
+                <div class="menu-items" id="menuItems">
+                    <!-- Los productos del menú se cargarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMOCIONES -->
+        <section id="promociones" class="promociones-section">
+            <h2 class="section-title">Promociones Especiales</h2>
+            <div class="promociones-grid" id="promocionesGrid">
+            </div>
+        </section>
+
+        <!-- PRODUCTOS DESTACADOS -->
+        <section id="productos" class="products-section">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="producto-lista" id="productoLista">
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="contact-section">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    <p><strong>Dirección:</strong> Yongsan District, Seoul, Corea del Sur</p>
+                    <p><strong>Teléfono:</strong> 123 456 788</p>
+                    <p><strong>Horario:</strong> Lunes a Sábado 9:00 - 20:00 hrs</p>
+
+                    <div class="social-media">
+                        <h4>Síguenos:</h4>
+                        <div class="social-icons">
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                                <img src="imagenes/facebook.png" alt="Facebook" />
+                            </a>
+                            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                                <img src="imagenes/instagram.png" alt="Instagram" />
+                            </a>
+                            <a href="https://whatsapp.com" target="_blank" aria-label="WhatsApp">
+                                <img src="imagenes/whatsapp.png" alt="WhatsApp" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal del Carrito -->
+    <div class="cart-modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Tu Carrito de Compras</h2>
+            <div class="cart-items" id="cartItems">
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cartTotal">S/ 0.00</span></p>
+            </div>
+            <button class="checkout-button" id="checkoutBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="main-footer">
+        <div class="footer-links">
+            <div class="link-group">
+                <h4>Menú</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="link-group">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#productos">Pasteles</a></li>
+                    <li><a href="#productos">Cupcakes</a></li>
+                    <li><a href="#productos">Galletas</a></li>
+                    <li><a href="#productos">Postres</a></li>
+                </ul>
+            </div>
+            <div class="link-group">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2025 Dulce Tentación - Todos los derechos reservados</p>
+            <p>Sitio web desarrollado por Fabiana Trinidad Monge Piemntel</p>
+        </div>
+    </footer>
+
+    <script src="compras.js"></script>
+</body>
+</html>
